@@ -34,7 +34,7 @@
         <p>最近参与的话题</p>
         <ul class="titi">
           <li v-for="topic in user.recent_replies" :key="topic.id">
-            <router-link class="ok" :to="`/user/${topic.author.loginname}`">
+            <router-link class="ok" :to="`${$publicUrl}/user/${topic.author.loginname}`">
               <img :src="topic.author.avatar_url" alt />
             </router-link>
             <h2>{{topic.title}}</h2>

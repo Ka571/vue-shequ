@@ -6,49 +6,49 @@
           <router-link
             to="/?tab=all"
             @click.native="total=856"
-            :class="$route.fullPath==='/'||$route.fullPath==='/?tab=all'?'active':''"
+            :class="$route.fullPath===$publicUrl+'/'||$route.fullPath===$publicUrl+'/?tab=all'?'active':''"
           >全部</router-link>
         </li>
         <li>
           <router-link
             @click.native="total=15"
-            to="/?tab=good"
-            :class="$route.fullPath==='/?tab=good'?'active':''"
+            :to="`${$publicUrl}/?tab=good`"
+            :class="$route.fullPath===$publicUrl+'/?tab=good'?'active':''"
           >精华</router-link>
         </li>
         <li>
           <router-link
-            to="/?tab=weex"
+            :to="`${$publicUrl}/?tab=weex`"
             @click.native="total=3"
-            :class="$route.fullPath==='/?tab=weex'?'active':''"
+            :class="$route.fullPath===$publicUrl+'/?tab=weex'?'active':''"
           >weex</router-link>
         </li>
         <li>
           <router-link
-            to="/?tab=share"
+            :to="`${$publicUrl}/?tab=share`"
             @click.native="total=247"
-            :class="$route.fullPath==='/?tab=share'?'active':''"
+            :class="$route.fullPath===$publicUrl+'/?tab=share'?'active':''"
           >分享</router-link>
         </li>
         <li>
           <router-link
-            to="/?tab=ask"
+            :to="`${$publicUrl}/?tab=ask`"
             @click.native="total=577"
-            :class="$route.fullPath==='/?tab=ask'?'active':''"
+            :class="$route.fullPath===$publicUrl+'/?tab=ask'?'active':''"
           >问答</router-link>
         </li>
         <li>
           <router-link
-            to="/?tab=job"
+            :to="`${$publicUrl}/?tab=job`"
             @click.native="total=30"
-            :class="$route.fullPath==='/?tab=job'?'active':''"
+            :class="$route.fullPath===$publicUrl+'/?tab=job'?'active':''"
           >招聘</router-link>
         </li>
       </ul>
       <div v-if="topics.length">
         <ul class="ping">
           <li v-for="topic in topics" :key="topic.id">
-            <router-link :to="`/user/${topic.author.loginname}`">
+            <router-link :to="`${$publicUrl}/user/${topic.author.loginname}`">
               <img :style="{width:'30px',height:'30px'}" :src="topic.author.avatar_url" alt />
             </router-link>
             <div class="reply">
@@ -56,11 +56,11 @@
               <span>{{topic.visit_count}}</span>
             </div>
             <span
-              v-if="$route.fullPath === '/' || $route.fullPath==='/?tab=all' || topic.top || topic.good"
+              v-if="$route.fullPath === $publicUrl+'/' || $route.fullPath===$publicUrl+'/?tab=all' || topic.top || topic.good"
               :class="{tab: true,active: topic.top || topic.good}"
             >{{topic.top?'置顶':topic.good?'精华':topic.tab==='share'?'分享':topic.tab==='ask'?'问答':topic.tab==='job'?'招聘':'weex'}}</span>
             <span class="title">
-              <router-link :to="`/topic/${topic.id}`">{{topic.title}}</router-link>
+              <router-link :to="`${$publicUrl}/topic/${topic.id}`">{{topic.title}}</router-link>
             </span>
             <span>{{myMoment(topic.last_reply_at)}}</span>
           </li>
@@ -119,7 +119,7 @@ export default {
     currentChange(num) {
       console.log(num);
       const tab = this.$route.query.tab || 1;
-      this.$router.push(`/?tab=${tab}&page=${num}`);
+      this.$router.push(`${this.$publicUrl}/?tab=${tab}&page=${num}`);
     }
   }
 

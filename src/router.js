@@ -6,26 +6,27 @@ import Topic from "./components/Topic.vue";
 import Top from "./components/Top.vue";
 import CreatTopic from "./components/CreatTopic.vue";
 import Xiaoxi from "./components/Xiaoxi.vue";
+import PUBLIC from "./public";
 const routes = [
   {
     component: Home,
-    path: "/"
+    path: PUBLIC + "/"
   },
   {
     component: Xiaoxi,
-    path: "/messages"
+    path: PUBLIC + "/messages"
   },
   {
     component: CreatTopic,
-    path: "/topic/creat"
+    path: PUBLIC + "/topic/creat"
   },
   {
     component: Topic,
-    path: "/topic/:id"
+    path: PUBLIC + "/topic/:id"
   },
   {
     component: Top,
-    path: "/user/:id"
+    path: PUBLIC + "/user/:id"
   }
 ];
 const router = new VueRouter({

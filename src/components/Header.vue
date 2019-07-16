@@ -7,7 +7,7 @@
       </router-link>
       <ul class="kk">
         <li>首页</li>
-        <router-link to="/messages" tag="li">
+        <router-link :to="`${$publicUrl}/messages`" tag="li">
           <span>{{hasnot_read_messages.length}}</span>
           <span>未读信息</span>
         </router-link>
@@ -23,7 +23,7 @@
         <button @click="login">登录</button>
       </div>
       <div class="logout" v-else>
-        <router-link to="/topic/creat">
+        <router-link :to="`${$publicUrl}/topic/creat`">
           <span>发布话题</span>
         </router-link>
 

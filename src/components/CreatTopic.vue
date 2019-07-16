@@ -55,7 +55,7 @@ export default {
           this.tab = "";
           this.title = "";
           this.content = "";
-          this.$router.push(`/topic/${res.data.topic_id}`);
+          this.$router.push(`${this.$publicUrl}/topic/${res.data.topic_id}`);
         });
     },
     onEditorBlur(quill) {
