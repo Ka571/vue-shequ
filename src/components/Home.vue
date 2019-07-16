@@ -4,7 +4,7 @@
       <ul class="nav">
         <li>
           <router-link
-            to="/?tab=all"
+            :to="`${$publicUrl}/?tab=all`"
             @click.native="total=856"
             :class="$route.fullPath===$publicUrl+'/'||$route.fullPath===$publicUrl+'/?tab=all'?'active':''"
           >全部</router-link>

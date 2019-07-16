@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="header-inner">
-      <router-link to="/" class="logo">
+      <router-link :to="$publicUrl" class="logo">
         <img src="https://www.vue-js.com/public/images/vue.png" alt />
         <h1>Vue.js</h1>
       </router-link>
@@ -42,7 +42,7 @@ export default {
     return {
       text: "1e8095f8-35fe-459e-a66c-e0c3dcaf1615",
       user: null,
-     
+
       hasnot_read_messages: []
     };
   },
